@@ -1,4 +1,4 @@
-import { VehicleType } from './slot';
+import { VehicleType } from '../slots/slot.interface';
 
 export interface VehicleEntry {
   id: number;

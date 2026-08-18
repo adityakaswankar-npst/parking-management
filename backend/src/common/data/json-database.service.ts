@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-import { Slot } from '../../types/slot';
-import { VehicleEntry } from '../../types/vehicle-entry';
+import { Slot } from '../../slots/slot.interface';
+import { VehicleEntry } from '../../vehicle-entries/vehicle-entry.interface';
 
 interface Database {
   slots: Slot[];
