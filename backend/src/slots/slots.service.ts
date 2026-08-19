@@ -1,4 +1,8 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { JsonDatabaseService } from '../common/data/json-database.service';
 import { CreateSlotDto } from './dto/create-slot.dto';
 import { Slot } from './slot.interface';
@@ -44,5 +48,15 @@ export class SlotsService {
   async findAll() {
     const database = await this.jsonDatabaseService.read();
     return database.slots;
+  }
+
+  async findOne(id: number) {
+    const database = await this.jsonDatabaseService.read();
+
+    const slot = database.slots.find((slot) => slot.id === id);
+    if (!slot) {
+      throw new NotFoundException(`Slot with ${id} not found`);
+    }
+    return slot;
   }
 }

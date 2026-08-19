@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateSlotDto } from './dto/create-slot.dto';
 import { SlotsService } from './slots.service';
 
@@ -14,5 +14,10 @@ export class SlotsController {
   @Get()
   findAll() {
     return this.slotsService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.slotsService.findOne(Number(id));
   }
 }
