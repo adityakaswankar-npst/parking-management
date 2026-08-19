@@ -1,10 +1,4 @@
-import {
-  IsEnum,
-  IsInt,
-  IsISO8601,
-  IsNotEmpty,
-  IsString,
-} from 'class-validator';
+import { IsEnum, IsInt, IsNotEmpty, IsString } from 'class-validator';
 import { VehicleType } from '../../common/enums/vehicle-type.enums';
 
 export class CreateVehicleEntryDto {

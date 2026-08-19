@@ -10,6 +10,12 @@ import { JsonDatabaseService } from '../common/data/json-database.service';
 export class VehicleEntriesService {
   constructor(private readonly jsonDatabaseService: JsonDatabaseService) {}
 
+  async findAll() {
+    const database = await this.jsonDatabaseService.read();
+
+    return database.vehicleEntries;
+  }
+
   async create(createVehicleEntryDto: CreateVehicleEntryDto) {
     const database = await this.jsonDatabaseService.read();
 
