@@ -82,4 +82,26 @@ export class VehicleEntriesService {
 
     return newVehicleEntry;
   }
+
+  async exit(id: number) {
+    const database = await this.jsonDatabaseService.read();
+
+    const vehicleEntry = database.vehicleEntries.find(
+      (vehicleEntry) => vehicleEntry.id === id,
+    );
+
+    if (!vehicleEntry) {
+      throw new NotFoundException('Vehicle entry not found');
+    }
+
+    if (vehicleEntry.exitTime !== null) {
+      throw new ConflictException('Vehicle has already exited');
+    }
+
+    vehicleEntry.exitTime = new Date().toISOString();
+
+    await this.jsonDatabaseService.write(database);
+
+    return vehicleEntry;
+  }
 }
