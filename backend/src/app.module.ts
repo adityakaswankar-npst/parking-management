@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
+import { SlotsModule } from './slots/slots.module';
 
 @Module({
-  imports: [],
-  controllers:[],
-  providers:[]
+  imports: [SlotsModule],
 })
 export class AppModule {}
