@@ -134,6 +134,12 @@ export class VehicleEntriesService {
       throw new NotFoundException('Vehicle entry not found');
     }
 
+    const vehicleEntry = database.vehicleEntries[vehicleEntryIndex];
+
+    if (vehicleEntry.exitTime === null) {
+      throw new ConflictException('Active vehicle entry cannot be deleted');
+    }
+
     const [deletedVehicleEntry] = database.vehicleEntries.splice(
       vehicleEntryIndex,
       1,
