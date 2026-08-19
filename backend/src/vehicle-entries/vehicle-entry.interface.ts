@@ -7,4 +7,5 @@ export interface VehicleEntry {
   entryTime: string;
   exitTime: string | null;
   slotId: number;
+  parkingFee: number | null;
 }

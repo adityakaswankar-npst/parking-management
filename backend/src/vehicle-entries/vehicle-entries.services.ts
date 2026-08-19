@@ -74,6 +74,7 @@ export class VehicleEntriesService {
       entryTime: new Date().toISOString(),
       exitTime: null,
       slotId: createVehicleEntryDto.slotId,
+      parkingFee: null,
     };
 
     database.vehicleEntries.push(newVehicleEntry);
