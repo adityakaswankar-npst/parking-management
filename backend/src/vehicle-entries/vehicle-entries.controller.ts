@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { CreateVehicleEntryDto } from './dto/create-vehicle-entry.dto';
 import { VehicleEntriesService } from './vehicle-entries.services';
 
@@ -24,5 +32,10 @@ export class VehicleEntriesController {
   @Put(':id/exit')
   exit(@Param('id') id: string) {
     return this.vehicleEntriesService.exit(Number(id));
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.vehicleEntriesService.remove(Number(id));
   }
 }
