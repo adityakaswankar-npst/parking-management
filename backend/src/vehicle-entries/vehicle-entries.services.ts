@@ -16,6 +16,20 @@ export class VehicleEntriesService {
     return database.vehicleEntries;
   }
 
+  async findOne(id: number) {
+    const database = await this.jsonDatabaseService.read();
+
+    const vehicleEntry = database.vehicleEntries.find(
+      (vehicleEntry) => vehicleEntry.id === id,
+    );
+
+    if (!vehicleEntry) {
+      throw new NotFoundException('Vehicle entry not found');
+    }
+
+    return vehicleEntry;
+  }
+
   async create(createVehicleEntryDto: CreateVehicleEntryDto) {
     const database = await this.jsonDatabaseService.read();
 
