@@ -39,4 +39,9 @@ export class SlotsController {
   remove(@Param('id') id: string) {
     return this.slotsService.remove(Number(id));
   }
+
+  @Get(':id/vehicle-entries')
+  findVehicleEntries(@Param('id') id: string) {
+    return this.slotsService.findVehicleEntries(Number(id));
+  }
 }

@@ -114,4 +114,18 @@ export class SlotsService {
 
     return slot;
   }
+
+  async findVehicleEntries(id: number) {
+    const database = await this.jsonDatabaseService.read();
+
+    const slot = database.slots.find((slot) => slot.id === id);
+
+    if (!slot) {
+      throw new NotFoundException('Slot not found');
+    }
+
+    return database.vehicleEntries.filter(
+      (vehicleEntry) => vehicleEntry.slotId === id,
+    );
+  }
 }
