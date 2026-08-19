@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { CreateSlotDto } from './dto/create-slot.dto';
 import { SlotsService } from './slots.service';
 import { UpdateSlotDto } from './dto/update-slot.dto';
@@ -6,6 +14,16 @@ import { UpdateSlotDto } from './dto/update-slot.dto';
 @Controller('slots')
 export class SlotsController {
   constructor(private readonly slotsService: SlotsService) {}
+
+  @Get()
+  findAll() {
+    return this.slotsService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.slotsService.findOne(Number(id));
+  }
 
   @Post()
   create(@Body() createSlotDto: CreateSlotDto) {
@@ -17,13 +35,8 @@ export class SlotsController {
     return this.slotsService.update(Number(id), updateSlotDto);
   }
 
-  @Get()
-  findAll() {
-    return this.slotsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.slotsService.findOne(Number(id));
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.slotsService.remove(Number(id));
   }
 }

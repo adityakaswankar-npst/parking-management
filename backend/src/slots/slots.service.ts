@@ -12,6 +12,21 @@ import { UpdateSlotDto } from './dto/update-slot.dto';
 export class SlotsService {
   constructor(private readonly jsonDatabaseService: JsonDatabaseService) {}
 
+  async findAll() {
+    const database = await this.jsonDatabaseService.read();
+    return database.slots;
+  }
+
+  async findOne(id: number) {
+    const database = await this.jsonDatabaseService.read();
+
+    const slot = database.slots.find((slot) => slot.id === id);
+    if (!slot) {
+      throw new NotFoundException(`Slot with ${id} not found`);
+    }
+    return slot;
+  }
+
   async create(createSlotDto: CreateSlotDto): Promise<Slot> {
     const database = await this.jsonDatabaseService.read();
 
@@ -75,18 +90,28 @@ export class SlotsService {
     return slot;
   }
 
-  async findAll() {
-    const database = await this.jsonDatabaseService.read();
-    return database.slots;
-  }
-
-  async findOne(id: number) {
+  async remove(id: number) {
     const database = await this.jsonDatabaseService.read();
 
     const slot = database.slots.find((slot) => slot.id === id);
+
     if (!slot) {
-      throw new NotFoundException(`Slot with ${id} not found`);
+      throw new NotFoundException(`Slot with ID ${id} not found`);
     }
+
+    const activeVehicleEntry = database.vehicleEntries.find(
+      (vehicleEntry) =>
+        vehicleEntry.slotId === id && vehicleEntry.exitTime === null,
+    );
+
+    if (activeVehicleEntry) {
+      throw new ConflictException(`Slot with ID ${id} is currently occupied`);
+    }
+
+    database.slots = database.slots.filter((slot) => slot.id !== id);
+
+    await this.jsonDatabaseService.write(database);
+
     return slot;
   }
 }
