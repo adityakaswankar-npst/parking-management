@@ -21,5 +21,22 @@
       "vehicleType": "BIKE"
     }
   ],
-  "vehicleEntries": []
+  "vehicleEntries": [
+    {
+      "id": 1,
+      "vehicleNumber": "MH12AB1234",
+      "vehicleType": "CAR",
+      "entryTime": "2026-08-19T09:00:00Z",
+      "slotId": 1,
+      "exitTime": null
+    },
+    {
+      "id": 2,
+      "vehicleNumber": "MH12AB5678",
+      "vehicleType": "CAR",
+      "entryTime": "2026-08-19T07:21:54.040Z",
+      "exitTime": null,
+      "slotId": 2
+    }
+  ]
 }

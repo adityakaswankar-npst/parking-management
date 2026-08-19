@@ -15,9 +15,6 @@ export class CreateVehicleEntryDto {
   @IsEnum(VehicleType)
   vehicleType!: VehicleType;
 
-  @IsISO8601()
-  entryTime!: string;
-
   @IsInt()
   slotId!: number;
 }
