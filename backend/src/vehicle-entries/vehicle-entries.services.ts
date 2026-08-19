@@ -12,6 +12,7 @@ export class VehicleEntriesService {
     const newVehicleEntry = {
       id: database.vehicleEntries.length + 1,
       ...createVehicleEntryDto,
+      exitTime: null,
     };
 
     database.vehicleEntries.push(newVehicleEntry);
