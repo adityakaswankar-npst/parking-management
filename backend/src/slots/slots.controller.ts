@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { CreateSlotDto } from './dto/create-slot.dto';
 import { SlotsService } from './slots.service';
+import { UpdateSlotDto } from './dto/update-slot.dto';
 
 @Controller('slots')
 export class SlotsController {
@@ -9,6 +10,11 @@ export class SlotsController {
   @Post()
   create(@Body() createSlotDto: CreateSlotDto) {
     return this.slotsService.create(createSlotDto);
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateSlotDto: UpdateSlotDto) {
+    return this.slotsService.update(Number(id), updateSlotDto);
   }
 
   @Get()
