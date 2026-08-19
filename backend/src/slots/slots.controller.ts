@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateSlotDto } from './dto/create-slot.dto';
 import { SlotsService } from './slots.service';
 
@@ -9,5 +9,10 @@ export class SlotsController {
   @Post()
   create(@Body() createSlotDto: CreateSlotDto) {
     return this.slotsService.create(createSlotDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.slotsService.findAll();
   }
 }

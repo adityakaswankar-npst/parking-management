@@ -5,9 +5,7 @@ import { Slot } from './slot.interface';
 
 @Injectable()
 export class SlotsService {
-  constructor(
-    private readonly jsonDatabaseService: JsonDatabaseService,
-  ) {}
+  constructor(private readonly jsonDatabaseService: JsonDatabaseService) {}
 
   async create(createSlotDto: CreateSlotDto): Promise<Slot> {
     const database = await this.jsonDatabaseService.read();
@@ -41,5 +39,10 @@ export class SlotsService {
     }
 
     return Math.max(...slots.map((slot) => slot.id)) + 1;
+  }
+
+  async findAll() {
+    const database = await this.jsonDatabaseService.read();
+    return database.slots;
   }
 }

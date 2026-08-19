@@ -19,6 +19,11 @@
       "id": 4,
       "slotNumber": "B-02",
       "vehicleType": "BIKE"
+    },
+    {
+      "id": 5,
+      "slotNumber": "A-03",
+      "vehicleType": "CAR"
     }
   ],
   "vehicleEntries": []
