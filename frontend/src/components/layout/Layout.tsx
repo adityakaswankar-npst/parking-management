@@ -1,4 +1,4 @@
-import Header from "./Header";
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
 function Layout() {
@@ -7,13 +7,11 @@ function Layout() {
       <div className="flex min-h-screen">
         <Sidebar />
 
-        <div className="flex min-w-0 flex-1 flex-col">
-          <Header />
-
-          <main className="flex-1 p-4 md:p-6">
-            <div className="mx-auto max-w-7xl">Content</div>
-          </main>
-        </div>
+        <main className="flex-1 p-4 md:p-6">
+          <div className="mx-auto max-w-7xl">
+            <Outlet />
+          </div>
+        </main>
       </div>
     </div>
   );

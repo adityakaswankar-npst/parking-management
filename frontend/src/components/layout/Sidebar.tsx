@@ -1,4 +1,4 @@
-import { Car, History, LayoutDashboard, ParkingSquare } from "lucide-react";
+import { History, LayoutDashboard, ParkingSquare } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const navigation = [
@@ -13,11 +13,6 @@ const navigation = [
     icon: ParkingSquare,
   },
   {
-    name: "Active Vehicles",
-    path: "/vehicles",
-    icon: Car,
-  },
-  {
     name: "History",
     path: "/history",
     icon: History,
@@ -30,8 +25,8 @@ function Sidebar() {
       <div className="flex min-h-screen flex-col">
         <div className="flex h-16 items-center border-b border-sidebar-border px-6">
           <h1 className="text-2xl font-semibold tracking-tight">
-            <span className="text-[#8FB8E8]">Park</span>
-            <span className="text-[#38A2D4]">Ease</span>
+            <span className="text-primary">Park</span>
+            <span className="text-foreground">Ease</span>
           </h1>
         </div>
 
