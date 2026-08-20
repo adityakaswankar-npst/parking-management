@@ -1,11 +1,7 @@
-import Sidebar from "./components/layout/Sidebar";
+import Layout from "./components/layout/Layout";
 
 function App() {
-  return (
-    <div className="min-h-screen bg-slate-100">
-      <Sidebar />
-    </div>
-  );
+  return <Layout />;
 }
 
 export default App;

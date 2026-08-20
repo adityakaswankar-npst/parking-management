@@ -26,13 +26,13 @@ const navigation = [
 
 function Sidebar() {
   return (
-    <aside className="hidden w-64 shrink-0 border-r bg-slate-950 text-slate-100 md:block">
-      <div className="flex h-full min-h-screen flex-col">
-        <div className="border-b border-slate-800 px-6 py-5">
-          <h1 className="text-lg font-semibold tracking-tight">
-            Parking Management
+    <aside className="hidden w-50 shrink-0 border-r border-sidebar-border bg-sidebar text-sidebar-foreground md:block">
+      <div className="flex min-h-screen flex-col">
+        <div className="flex h-16 items-center border-b border-sidebar-border px-6">
+          <h1 className="text-2xl font-semibold tracking-tight">
+            <span className="text-[#8FB8E8]">Park</span>
+            <span className="text-[#38A2D4]">Ease</span>
           </h1>
-          <p className="mt-1 text-xs text-slate-400">Parking facility</p>
         </div>
 
         <nav className="flex-1 space-y-1 p-4">
@@ -44,10 +44,10 @@ function Sidebar() {
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition ${
+                  `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-slate-800 text-white"
-                      : "text-slate-400 hover:bg-slate-900 hover:text-white"
+                      ? "bg-sidebar-active text-sidebar-foreground"
+                      : "text-sidebar-muted hover:bg-sidebar-active hover:text-sidebar-foreground"
                   }`
                 }
               >
