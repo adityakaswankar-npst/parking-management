@@ -24,7 +24,7 @@ function Occupancy({ slots, vehicleEntries, onRefresh }: OccupancyProps) {
     (entry) => entry.exitTime === null,
   );
 
-  const displayedSlots = slots.slice(0, 8);
+  const displayedSlots = slots.slice(0, 5);
 
   const getActiveEntry = (slotId: number) => {
     return activeEntries.find((entry) => entry.slotId === slotId);
