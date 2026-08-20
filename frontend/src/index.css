@@ -1,35 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
-
 :root {
-  --background: #0b0d12;
-  --foreground: #f5f7fa;
+  font-family: "Inter", sans-serif;
+  --background: #0d0d0c;
+  --foreground: #f1f0eb;
 
-  --card: #11141b;
-  --card-foreground: #f5f7fa;
+  --card: #171614;
+  --card-foreground: #f1f0eb;
 
-  --primary: #4f7cff;
-  --primary-foreground: #ffffff;
+  --primary: #f59e0b;
+  --primary-foreground: #17100a;
 
-  --muted: #161a22;
-  --muted-foreground: #9aa3b2;
+  --brand-light: #fcd34d;
+  --brand: #f59e0b;
 
-  --border: #232832;
+  --muted: #201e1a;
+  --muted-foreground: #98948b;
+
+  --border: #302d27;
 
   --success: #22c55e;
   --warning: #f59e0b;
   --destructive: #ef4444;
 
-  --sidebar: #090b10;
-  --sidebar-foreground: #f5f7fa;
-  --sidebar-muted: #667085;
-  --sidebar-border: #232832;
-  --sidebar-active: #161a22;
+  --sidebar: #090908;
+  --sidebar-foreground: #f1f0eb;
+  --sidebar-muted: #716e66;
+  --sidebar-border: #24221e;
+  --sidebar-active: #1d1b17;
 
-  --header: #0b0d12;
-  --header-foreground: #f5f7fa;
-  --header-muted: #9aa3b2;
+  --header: #0d0d0c;
+  --header-foreground: #f1f0eb;
+  --header-muted: #98948b;
 }
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -39,6 +42,9 @@
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
